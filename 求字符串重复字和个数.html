@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+</head>
+
+<body>
+
+
+    <script>
+        String.prototype.filter = function() {//字符串原型链
+            var str = this;
+            var str1 = "";
+
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] != ' ') {
+                    str1 += str[i];
+                }
+            } //end for
+
+
+            var arr = {};//定义对象
+
+            for (var i = 0; i < str1.length; i++) {
+                if (!arr[str1[i]]) {
+                    arr[str1[i]] = 1;
+                } else {
+                    arr[str1[i]]++;
+                }
+            } //end for 
+
+            var sz = [];
+            var num = [];
+
+            for (k in arr) {
+                var key = k;
+                var value = arr[k];
+                sz.push(key);
+                num.push(value);//插入数组
+            }
+
+            //console.log(sz);
+
+            var nums_max = 0;
+
+
+            for (var o = 0; o < sz.length; o++) {
+                var nums_max = Math.max(num[0], num[o]);
+
+            }
+
+            console.log(sz);
+            console.log(num);
+
+            //var sz = [];
+            //var num =[];
+            var result = "";
+            for (var l = 0; l < num.length; l++) {
+                if (num[l] == nums_max) {
+                    result += sz[l] + " ";//清除空格
+                }
+            }
+
+            console.log("结果是" + result + "最大值是：" + nums_max);
+            // console.log(arr);
+        }
+
+
+
+
+        var str = "aaaaa bbbbb gdu siug dgs i自U公司度过是给IU公司贵 三个的 ";
+        str.filter();
+
+        " aaaaa bbbb ihsih s ".filter();
+    </script>
+
+
+</body>
+
+</html>

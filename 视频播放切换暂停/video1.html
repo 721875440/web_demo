@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5视频播放器</title>
+</head>
+
+<body>
+
+
+        
+
+
+<video controls id="video">
+    <source src="demo.mp4"></source>
+</video>
+
+<script>
+
+
+var a = document.getElementById("video");
+
+
+
+
+
+
+// 各种浏览器兼容
+var hidden, state, visibilityChange;
+if (typeof document.hidden !== "undefined") {
+    hidden = "hidden";
+    visibilityChange = "visibilitychange";
+    state = "visibilityState";
+} else if (typeof document.mozHidden !== "undefined") {
+    hidden = "mozHidden";
+    visibilityChange = "mozvisibilitychange";
+    state = "mozVisibilityState";
+} else if (typeof document.msHidden !== "undefined") {
+    hidden = "msHidden";
+    visibilityChange = "msvisibilitychange";
+    state = "msVisibilityState";
+} else if (typeof document.webkitHidden !== "undefined") {
+    hidden = "webkitHidden";
+    visibilityChange = "webkitvisibilitychange";
+    state = "webkitVisibilityState";
+}
+ 
+// 添加监听器，在title里显示状态变化
+document.addEventListener(visibilityChange, function() {
+
+    if(document[hidden]){
+        a.pause();
+        document.title = "您没有看视频，当前为暂停状态";
+
+     }else{
+        a.play();
+        document.title = "周杰伦代言卡巴斯基杀毒软件视频广告";
+
+     };
+    
+    
+    
+    
+    
+}, false);
+ 
+// 初始化
+        document.title = "周杰伦代言卡巴斯基杀毒软件视频广告";
+
+</script>
+
+</body>
+</html>
